@@ -1,0 +1,16 @@
+# local env files
+.env.local
+.env.*.local
+.npmrc
+
+# Log files
+npm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+.ntvs
+*.njsproj
+*.sln
+*.sw?
