@@ -1,0 +1,8 @@
+A leirasban ugy irja hogy lenyegeben ez a feladat az elozonek a tovabbfejlesztese kellene legyen.
+Az elozo hazi a sapp.js 
+
+Nem ertem hogy hogyan kellene hasznaljam a split() funkciot a data.txt file-ra, a neten amit neztem
+ott mindenhol egy const-ba volt meghatarozva a szoveg amit split-eltek.
+
+A masik meg nem ertem hogy hogyan tudnam bevinni az adatokat a data.txt-bol a constructor function-be
+hogy azok az adatok alapjan csinaljon nekem objecteket.
