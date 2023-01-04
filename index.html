@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment - Website Building</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        #login-container {
+            width: 460px;
+            margin: 0 auto;
+        }
+
+        form label,
+        form input {
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        form input {
+            position: relative;
+            padding: 8px;
+        }
+
+        form label {
+            font-weight: bold;
+        }
+
+        form div {
+            margin: 16px 0px;
+        }
+
+        #username-icon{
+            position: relative;
+        }
+
+        #username-icon i {
+            position: absolute;
+            right: -450px;
+            top: -115px;
+            color: green;
+        }
+
+        #username-icon2{
+            position: relative;
+        }
+
+        #username-icon2 i {
+            position: absolute;
+            right: -450px;
+            top: -115px;
+            color: red;
+        }
+
+        #password-icon{
+            position: relative;
+        }
+
+        #password-icon i {
+            position: absolute;
+            right: -450px;
+            top: -43px;
+            color: green;
+        }
+
+        #password-icon2{
+            position: relative;
+        }
+
+        #password-icon2 i {
+            position: absolute;
+            right: -450px;
+            top: -43px;
+            color: red;
+        }
+
+        
+    </style>
+
+<script src="https://kit.fontawesome.com/37bc71d387.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div id="login-container">
+
+        <form onsubmit="return validateForm()">
+            <div id="username-container">
+                <label for="username">Username:</label>
+                <input id="username" type="text">
+            </div>
+
+            <div>
+                <label for="password">Password:</label>
+                <input id="password" type="password">
+            </div>
+
+            <div id="errors"></div>
+
+            <!-- pentru afișarea iconițelor la sfârșitul câmpurilor -->
+            <span id="password-icon"><i class="fa-solid fa-check"></i></span>
+            <span id="password-icon2"><i class="fa-solid fa-x"></i></span>
+            <span id="username-icon"><i class="fa-solid fa-check"></i></span>
+            <span id="username-icon2"><i class="fa-solid fa-x"></i></span>
+            <input type="submit" value="Login">
+
+        </form>
+
+    </div>
+    <script>
+        function validateForm() {
+            // Preload the values the user has entered
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Initialize the errors variable  
+            let errors = '';
+
+            // Hide the checkmark icons by default
+            document.getElementById("password-icon").style.display = "none";
+            document.getElementById("password-icon2").style.display = "none";
+            document.getElementById("username-icon").style.display = "none";
+            document.getElementById("username-icon2").style.display = "none";
+            
+            
+
+            // Validate the form values
+            if (!username) {
+                errors += '<p>Please enter a username</p>';
+                document.getElementById('username').style.border = '2px solid red';
+                document.getElementById("username-icon2").style.display = "inline-block";
+               
+            } else if (username !== 'new_user') {
+                errors += '<p>Please enter a valid username</p>';
+                document.getElementById('username').style.border = '2px solid red';
+                document.getElementById("username-icon2").style.display = "inline-block";
+                
+            } else {
+                document.getElementById('username').style.border = '2px solid green';
+                document.getElementById("username-icon").style.display = "inline-block";
+            }
+            if (!password) {
+                errors += '<p>Please enter a password</p>';
+                document.getElementById('password').style.border = '2px solid red';
+                document.getElementById("password-icon2").style.display = "inline-block";
+            
+            } else if (password !== '123456789') {
+                errors += '<p>Please enter a valid password</p>';
+                document.getElementById('password').style.border = '2px solid red';
+                document.getElementById("password-icon2").style.display = "inline-block";
+            } else {
+                document.getElementById('password').style.border = '2px solid green';
+                document.getElementById("password-icon").style.display = "inline-block";
+            
+            }
+
+            // Display the errors or the success message
+            if (errors === '') {
+                document.getElementById('errors').innerHTML = '<p>Successful login!</p>';
+                return true;
+            } else {
+                document.getElementById('errors').innerHTML = errors;
+                return false;
+            }
+        }
+
+
+    </script>
+</body>
+
+</html> 
